@@ -17,7 +17,7 @@ export class CartService {
   }
 
   setProduct(product: any) {
-    this.cartItemList.push(...product);
+    this.cartItemList.push(...product); //spread er offiset det værte jeg har sett lol...
     this.productList.next(product);
   }
 
