@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "stinestrikk-f3a49": {
+      "hosting": {
+        "shoppingcart": [
+          "stinestrikk-f3a49"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "stinestrikk-f3a49"
+  }
+}
