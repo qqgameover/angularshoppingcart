@@ -25,7 +25,6 @@ export class ProductsComponent implements OnInit {
           }
           Object.assign(e, { quantity: 1, total: e.price })
         });
-        console.log(this.productsList)
       });
     this.cartService.searchValue.subscribe((value: any) => {
       this.searchKey = value
