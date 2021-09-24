@@ -1,14 +1,14 @@
 <header>
-	<div class="navbar bg-primary shadow-sm">
+	<div class="navbar navbar-dark bg-primary shadow-sm">
 		<div class="navbar-brand align-item-center d-flex">
 			<i style="font-size: 40px; color: white;" class="fas fa-shipping-fast">
 				<strong>KasperCart</strong>
 			</i>
 			<div class="form-group">
 				<input type="text" [(ngModel)]="searchTerm" (keyup)="search($event)"
-					placeholder="Search for a product">
+					class="form-control" placeholder="Search for a product">
 			</div>
-			<span style="color: white;" class="fas fa-search search-icon"></span>
+			<span style="color: white; padding-top: 10px;" class="fas fa-search search-icon"></span>
 		</div>
 		<button class="btn btn-primary" routerLink="/cart">
 			<i style="font-size: 30px" class="fas fa-cart-plus"></i>
