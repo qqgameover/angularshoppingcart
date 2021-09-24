@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { CartService } from 'src/app/service/cart.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-products',
@@ -10,9 +11,14 @@ import { CartService } from 'src/app/service/cart.service';
 export class ProductsComponent implements OnInit {
 
   public productsList: any;
+  public productTest: any;
   public filterCatagory: any;
   searchKey: string = "";
-  constructor(private api: ApiService, private cartService: CartService) { }
+  constructor(private api: ApiService, private cartService: CartService, db: AngularFireDatabase) {
+    db.list("products").valueChanges().subscribe(products => {
+      console.log(products)
+    })
+  }
 
   ngOnInit(): void {
     this.api.getProducts()
