@@ -10,6 +10,7 @@ import { CartService } from 'src/app/service/cart.service';
 export class ProductsComponent implements OnInit {
 
   public productsList: any;
+  searchKey: string = "";
   constructor(private api: ApiService, private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -21,6 +22,9 @@ export class ProductsComponent implements OnInit {
           Object.assign(e, { quantity: 1, total: e.price })
         })
       })
+    this.cartService.searchValue.subscribe((value: any) => {
+      this.searchKey = value
+    })
   }
   addToCart(item: any) {
     this.cartService.addToCart(item)

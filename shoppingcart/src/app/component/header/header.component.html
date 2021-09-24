@@ -5,7 +5,8 @@
 				<strong>KasperCart</strong>
 			</i>
 			<div class="form-group">
-				<input type="text" placeholder="Search for a product">
+				<input type="text" [(ngModel)]="searchTerm" (keyup)="search($event)"
+					placeholder="Search for a product">
 			</div>
 			<span style="color: white;" class="fas fa-search search-icon"></span>
 		</div>
