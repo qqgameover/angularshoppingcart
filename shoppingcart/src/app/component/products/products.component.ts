@@ -10,6 +10,7 @@ import { CartService } from 'src/app/service/cart.service';
 export class ProductsComponent implements OnInit {
 
   public productsList: any;
+  public filterCatagory: any;
   searchKey: string = "";
   constructor(private api: ApiService, private cartService: CartService) { }
 
@@ -17,11 +18,15 @@ export class ProductsComponent implements OnInit {
     this.api.getProducts()
       .subscribe(res => {
         this.productsList = res;
-
+        this.filterCatagory = res;
         this.productsList.forEach((e: any) => {
+          if (e.category === "women's clothing" || e.category === "men's clothing") {
+            e.category = "fashion"
+          }
           Object.assign(e, { quantity: 1, total: e.price })
-        })
-      })
+        });
+        console.log(this.productsList)
+      });
     this.cartService.searchValue.subscribe((value: any) => {
       this.searchKey = value
     })
@@ -30,5 +35,13 @@ export class ProductsComponent implements OnInit {
     this.cartService.addToCart(item)
   }
 
+  filter(category: string) {
+    this.filterCatagory = this.productsList
+      .filter((e: any) => {
+        if (e.category == category || category === "") {
+          return e;
+        }
+      })
+  }
 
 }
